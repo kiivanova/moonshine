@@ -8,10 +8,7 @@ from beer.serializers import BeerModelSerializer
 
 
 class BeerView(views.APIView):
-    """Create delivery order"""
 
-    # authentication_classes = [OAuth2Authentication]
-    # permission_classes = [permissions.IsAuthenticated, TokenHasReadWriteScope]
     serializer_class = BeerModelSerializer
 
     def get(self, request, pk=None):
