@@ -15,7 +15,20 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from django.conf.urls import include, url
+
+from beer.urls import beer_api_urls
 
 urlpatterns = [
+
     path('admin/', admin.site.urls),
+
+    # rest framework
+    path('api-auth/', include('rest_framework.urls')),
+
+]
+
+urlpatterns += [
+    # beer app
+    url(r'^api/', include((beer_api_urls, 'beer'), namespace='beer')),
 ]
